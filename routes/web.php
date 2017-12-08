@@ -18,4 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/import', 'ImportController@index')->name('importcontract');
 Route::post('importExcel', 'ImportController@importContract');

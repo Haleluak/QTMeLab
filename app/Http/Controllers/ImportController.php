@@ -8,21 +8,25 @@ use Maatwebsite\Excel\Excel;
 
 class ImportController extends Controller
 {
+    public function index()
+    {
+        return view('import.index');
+    }
     public function importContract(Request $request)
     {
-        if(Input::hasFile('imported-file')){
+        if($request->hasFile('imported-file')){
             $path = $request->file('imported-file')->getRealPath();
-            $data = Excel::load($path, function($reader) {})->get();
-            if(!empty($data) && $data->count()){
+            $data = \Excel::load($path)->get();
+
+            if($data->count()){
                 foreach ($data as $key => $value) {
-                    $insert[] = ['title' => $value->title, 'description' => $value->description];
+                    //$arr[] = ['title' => $value->title, 'body' => $value->body];
+                    $arr[] = $data[$key];
                 }
-                if(!empty($insert)){
-                    DB::table('items')->insert($insert);
-                    dd('Insert Record successfully.');
+                if(!empty($arr)){
+                    dd($arr);
                 }
             }
         }
-        return back();
     }
 }

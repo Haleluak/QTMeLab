@@ -113,6 +113,10 @@
                         <a href="index.html" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Dashboard </span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/import" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Import Contract </span>
+                        </a>
+                    </li>
                     <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i
                                     class="zmdi zmdi-collection-text"></i><span
@@ -151,5 +155,19 @@
 <!-- App js -->
 <script src="{{ asset('admin/js/jquery.core.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.app.js') }}"></script>
+<script src="{{ asset('admin/plugins/fileuploads/js/dropify.min.js')}}"></script>
+<script type="text/javascript">
+    $('.dropify').dropify({
+        messages: {
+            'default': 'Drag and drop a file here or click',
+            'replace': 'Drag and drop or click to replace',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong appended.'
+        },
+        error: {
+            'fileSize': 'The file size is too big (1M max).'
+        }
+    });
+</script>
 </body>
 </html>
