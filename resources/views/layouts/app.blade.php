@@ -96,9 +96,14 @@
                     </li>
 
                     <li>
-                        <a href="#" class="text-custom">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                           class="text-custom">
                             <i class="zmdi zmdi-power"></i>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 </ul>
             </div>
