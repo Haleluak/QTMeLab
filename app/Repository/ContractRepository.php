@@ -29,6 +29,10 @@ class ContractRepository
         $isSave = $contractModel->save();
         return $contractModel->id;
     }
-
+    public function getAll()
+    {
+        $contracts = Contract::all();
+        return $contracts;
+    }
 
 }

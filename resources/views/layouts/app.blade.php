@@ -119,6 +119,10 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/contract" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> List Contract </span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/import" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Import Contract </span>
                         </a>
                     </li>
