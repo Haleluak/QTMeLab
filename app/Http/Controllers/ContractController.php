@@ -22,5 +22,10 @@ class ContractController extends Controller
         $contracts = $this->_contractRepository->getAll();
         return view('contract.list', compact('contracts'));
     }
+    public function detail($id)
+    {
+        $contract = $this->_contractRepository->getdetail($id);
+        return view('contract.detail', compact('contract'));
+    }
 
 }

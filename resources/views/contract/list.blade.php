@@ -9,7 +9,7 @@
 
                 <div class="row">
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="card-box">
                             <div class="dropdown pull-right">
                                 <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
@@ -41,9 +41,9 @@
                                     <tbody>
                                     @foreach($contracts as $contract)
                                         <tr>
-                                            <td>{{ $contract->so_hop_dong }}</td>
+                                            <td><a href="{{ url('/contract/view/' .$contract->id) }}">{{ $contract->so_hop_dong }}</a></td>
                                             <td>{{ $contract->ngay_lap_hd }}</td>
-                                            <td>{{ $contract->so_hop_dong }}</td>
+                                            <td>{{ $contract->customer->ten_khach_hang_thanh_toan }}</td>
                                             <td><span class="label label-pink">{{ $contract->status }}</span></td>
                                             <td>{{ $contract->created_at }}</td>
                                         </tr>

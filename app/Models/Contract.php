@@ -14,4 +14,8 @@ class Contract extends Model
         'ngay_du_kien',
         'status'
     ];
+    public function customer()
+    {
+        return $this->hasOne(Customer::class, 'contract_id', 'id');
+    }
 }

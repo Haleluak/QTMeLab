@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/import', 'ImportController@index')->name('importcontract');
 Route::get('contract', 'ContractController@index')->name('contract');
+Route::get('contract/view/{id}', 'ContractController@detail');
 Route::post('importExcel', 'ImportController@importContract');

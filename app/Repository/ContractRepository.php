@@ -31,8 +31,14 @@ class ContractRepository
     }
     public function getAll()
     {
-        $contracts = Contract::all();
+        $contracts = Contract::with('customer')->get();
         return $contracts;
+    }
+    public function getdetail($id)
+    {
+        $contract = Contract::find($id);
+        $contract->load('customer');
+        return $contract;
     }
 
 }
