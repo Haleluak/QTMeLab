@@ -19,6 +19,8 @@
     <link href="{{ asset('admin/css/pages.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('admin/css/menu.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('admin/css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Modal -->
+    <link href="{{ asset('admin/plugins/custombox/dist/custombox.min.css') }}" rel="stylesheet">
     <script src="{{ asset('admin/js/modernizr.min.js') }}"></script>
 </head>
 <body class="fixed-left">
@@ -135,6 +137,10 @@
                             <li><a href="form-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="group" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Nhom </span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -160,6 +166,9 @@
 <script src="{{ asset('admin/js/jquery.slimscroll.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/jquery-knob/jquery.knob.js') }}"></script>
+<!-- Modal-Effect -->
+<script src="{{ asset('admin/plugins/custombox/dist/custombox.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/custombox/dist/legacy.min.js')}}"></script>
 
 <!-- App js -->
 <script src="{{ asset('admin/js/jquery.core.js') }}"></script>
