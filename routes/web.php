@@ -25,3 +25,4 @@ Route::get('group', 'GroupController@index');
 Route::post('group', 'GroupController@index')->name('group.add');
 Route::post('importExcel', 'ImportController@importContract');
 Route::get('assigntask', 'TaskTodoController@index')->name('assign.task');
+Route::post('createSample', 'SampleController@create')->name('sample.create');

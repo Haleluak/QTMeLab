@@ -56,7 +56,10 @@
                                     <i class="zmdi zmdi-more-vert"></i>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('assign.task') }}">Thêm Chỉ Tiêu</a></li>
+                                    <li>
+                                        <a href="{{ route('assign.task') }}">Thêm Chỉ Tiêu</a>
+                                        <a href="#create-sample-modal"  data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a"> Thêm mẫu</a>
+                                    </li>
                                 </ul>
                             </div>
                             <h4 class="header-title m-t-0 m-b-30"> Tên Mẫu: Nước</h4>
@@ -113,5 +116,26 @@
             </div> <!-- container -->
 
         </div> <!-- content -->
+    </div>
+    <div id="create-sample-modal" class="modal-demo">
+        <button type="button" class="close" onclick="Custombox.close();">
+            <span>&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="custom-modal-title">Thêm mẫu</h4>
+        <div class="custom-modal-text text-left">
+            <form role="form" method="post" action="{{ route('sample.create') }}">
+                <div class="form-group">
+                    <label for="name">Tên mẫu</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Số Lượng mẫu</label>
+                    <input type="text" class="form-control" name="quantity" placeholder="Số lượng mẫu" value="1">
+                </div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+                <input type="hidden" name="contract_id" value="{{ $contract->id }}" >
+                <button type="submit" class="btn btn-success waves-effect waves-light">Save</button>
+            </form>
+        </div>
     </div>
 @endsection
