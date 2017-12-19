@@ -24,3 +24,4 @@ Route::get('contract/view/{id}', 'ContractController@detail');
 Route::get('group', 'GroupController@index');
 Route::post('group', 'GroupController@index')->name('group.add');
 Route::post('importExcel', 'ImportController@importContract');
+Route::get('assigntask', 'TaskTodoController@index')->name('assign.task');

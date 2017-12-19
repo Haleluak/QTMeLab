@@ -49,7 +49,64 @@
                             </form>
                         </div>
                     </div>
-
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('assign.task') }}">Thêm Chỉ Tiêu</a></li>
+                                </ul>
+                            </div>
+                            <h4 class="header-title m-t-0 m-b-30"> Tên Mẫu: Nước</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Tên Chỉ Tiêu</th>
+                                        <th>Phương pháp thử</th>
+                                        <th>Người làm</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Ngày kết Thúc</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Adminto Admin v1</td>
+                                        <td>01/01/2016</td>
+                                        <td>
+                                            <div class="assign-team">
+                                                <div>
+                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64" src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg"> </a>
+                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64" src="http://coderthemes.com/adminto/light/assets/images/users/avatar-3.jpg"> </a>
+                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64" src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg"> </a>
+                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64" src="http://coderthemes.com/adminto/light/assets/images/users/avatar-8.jpg"> </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="label label-danger">Released</span></td>
+                                        <td>01/01/2016</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adminto Frontend v1</td>
+                                        <td>01/01/2016</td>
+                                        <td>26/04/2016</td>
+                                        <td><span class="label label-success">Released</span></td>
+                                        <td>Adminto admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adminto Admin v1.1</td>
+                                        <td>01/05/2016</td>
+                                        <td>10/05/2016</td>
+                                        <td><span class="label label-pink">Pending</span></td>
+                                        <td>Coderthemes</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- end row -->
 

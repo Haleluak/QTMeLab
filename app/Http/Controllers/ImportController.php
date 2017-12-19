@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Repository\ContractRepository;
 use App\Repository\CustomerRepository;
+use App\Repository\SampleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ImportController extends Controller
 {
     private $_contractRepository;
-
+    private $_customerRepository;
+    private $_sampleRepository;
     /**
      * ShopifyController constructor.
      */
@@ -18,6 +20,7 @@ class ImportController extends Controller
     {
         $this->_contractRepository = new ContractRepository();
         $this->_customerRepository = new CustomerRepository();
+        $this->_sampleRepository = new SampleRepository();
     }
 
     public function index()
@@ -51,11 +54,15 @@ class ImportController extends Controller
                             'khach_hang_ket_qua' => $value->khach_hang_ket_qua,
                             'dia_chi_khach_hang_ket_qua' => $value->dia_chi_khach_hang_ket_qua,
                         ];
+                        $sp = [
+                            'name' => $value->ten_mau,
+                            'contract_id' => $id_contract
+                        ];
                         $this->_customerRepository->insert($cus);
+                        $this->_sampleRepository->create($sp);
                     }
                     DB::commit();
-                }
-                catch (Exception $ex) {
+                } catch (Exception $ex) {
                     DB::rollback();
                     throw $ex;
                 }
