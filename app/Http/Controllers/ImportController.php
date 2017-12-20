@@ -59,7 +59,7 @@ class ImportController extends Controller
                             'contract_id' => $id_contract
                         ];
                         $this->_customerRepository->insert($cus);
-                        $this->_sampleRepository->create($sp);
+                        //$this->_sampleRepository->create($sp);
                     }
                     DB::commit();
                 } catch (Exception $ex) {

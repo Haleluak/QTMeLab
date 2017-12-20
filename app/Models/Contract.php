@@ -18,7 +18,7 @@ class Contract extends Model
     {
         return $this->hasOne(Customer::class, 'contract_id', 'id');
     }
-    public function sample()
+    public function samples()
     {
         return $this->hasMany(Sample::class, 'contract_id', 'id');
     }

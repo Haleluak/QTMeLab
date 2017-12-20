@@ -6,5 +6,5 @@ $(document).ready(function () {
         autoclose: true,
         todayHighlight: true
     });
-    jQuery(".select2").select2();
+    jQuery(".select2").select2({dropdownCssClass: "increasedzindexclass",});
 });

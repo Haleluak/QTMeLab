@@ -37,7 +37,7 @@ class ContractRepository
     public function getdetail($id)
     {
         $contract = Contract::find($id);
-        $contract->load('customer');
+        $contract->load('customer','samples');
         return $contract;
     }
 
