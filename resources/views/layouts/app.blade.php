@@ -126,6 +126,10 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('regulation.list') }}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> List Quy Chuẩn </span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/import" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Import Contract </span>
                         </a>
                     </li>
