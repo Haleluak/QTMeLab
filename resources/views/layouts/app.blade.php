@@ -130,6 +130,10 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('specification.list') }}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> List Chỉ Tiêu </span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="/import" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Import Contract </span>
                         </a>
                     </li>

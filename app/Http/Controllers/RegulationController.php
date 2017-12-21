@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Repository\RegulationRepository;
+use Illuminate\Http\Request;
+
 class RegulationController extends Controller
 {
     private $_regulationRepository;
@@ -10,17 +13,16 @@ class RegulationController extends Controller
 
     public function __construct()
     {
-        $this->_regulationRepository= new SampleRepository();
+        $this->_regulationRepository= new RegulationRepository();
     }
 
-    public function create(Request $request)
+    public function index(Request $request)
     {
-        $data = $request->all();
-        $quantity =  $request->get('quantity') ? (int)$request->get('quantity') : 1 ;
-        for ($i = 0 ; $i< $quantity ; $i++)
-        {
-            $this->_sampleRepository->create($data);
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+             $this->_regulationRepository->create($data);
         }
-        return back();
+        $regulations = $this->_regulationRepository->getAll();
+        return view('regulation.list', compact('regulations'));
     }
 }
