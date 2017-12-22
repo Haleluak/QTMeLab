@@ -30,3 +30,4 @@ Route::get('regulation', 'RegulationController@index')->name('regulation.list');
 Route::post('regulation', 'RegulationController@index')->name('regulation.create');
 
 Route::get('specification', 'SpecificationController@index')->name('specification.list');
+Route::get('member', 'MemberController@getMember');

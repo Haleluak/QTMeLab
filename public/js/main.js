@@ -1,10 +1,23 @@
 var $ = jQuery.noConflict();
 $(document).ready(function () {
-    jQuery('#Sdate').datepicker();
-    jQuery('#Edate').datepicker();
-    jQuery('#datepicker-autoclose').datepicker({
-        autoclose: true,
-        todayHighlight: true
+    $('#group_lab').on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        $.ajax({
+            type : "get",
+            url: "/member",
+            dataType : 'json',
+            data : { group_id: valueSelected},
+            success: function (data, statusText, xhr) {
+                var options;
+                options = '<option>Select</option>';
+                $.each(data.data, function(index, object) {
+                    options += '<option value="' + object['id'] + '">' + object['name'] + '</option>';
+                });
+                $('#assignTo').html(options);
+            }
+        });
     });
+
     jQuery(".select2").select2({dropdownCssClass: "increasedzindexclass",});
 });
