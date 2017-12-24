@@ -24,66 +24,105 @@
                 <!-- end row -->
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="card-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                                   aria-expanded="false">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="#create-assign-modal" data-animation="fadein" data-plugin="custommodal"
-                                           data-overlayspeed="200" data-overlaycolor="#36404a"> Thêm chỉ tiêu</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="header-title m-t-0 m-b-30"> Danh sách chỉ tiêu</h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Tên chỉ tiêu</th>
-                                        <th>Nhóm</th>
-                                        <th>Người làm</th>
-                                        <th>Ngày bắt đầu</th>
-                                        <th>Ngày kết Thúc</th>
-                                        <th style="width: 102px"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> 12</td>
-                                        <td>01/01/2016</td>
-                                        <td>
-                                            <div class="assign-team">
-                                                <div>
-                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                      src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg">
-                                                    </a>
-                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                      src="http://coderthemes.com/adminto/light/assets/images/users/avatar-3.jpg">
-                                                    </a>
-                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                      src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg">
-                                                    </a>
-                                                    <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                      src="http://coderthemes.com/adminto/light/assets/images/users/avatar-8.jpg">
-                                                    </a>
-                                                </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <ul class="nav nav-tabs">
+                                        <li role="presentation" class="">
+                                            <a href="#home1" role="tab" data-toggle="tab" aria-expanded="false">Home</a>
+                                        </li>
+                                        <li role="presentation" class="active">
+                                            <a href="#profile1" role="tab" data-toggle="tab" aria-expanded="true">Profile</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade" id="home1">
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade active in" id="profile1">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox checkbox-success">
+                                                        <input id="checkbox3" type="checkbox">
+                                                        <label for="checkbox3">
+                                                            Success
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox checkbox-success">
+                                                        <input id="checkbox3" type="checkbox">
+                                                        <label for="checkbox3">
+                                                            Success
+                                                        </label>
+                                                    </div>
+                                                </div><!-- end col -->
                                             </div>
-                                        </td>
-                                        <td><span class="label label-danger">Released</span></td>
-                                        <td>01/01/2016</td>
-                                        <td class="actions">
-                                            <a href="{{ route('assign.task') }}" class="btn btn-sm btn-info"><i
-                                                        class="glyphicon glyphicon-pencil"></i></a>
-                                            <a class="btn btn-sm btn-danger"><i
-                                                        class="glyphicon glyphicon-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                        </div>
+                                    </div>
+                                </div><!-- end col -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6">
+                        <div class="card-box">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+                                </div><!-- end col -->
+
+                                <div class="col-sm-4">
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+
+                                </div><!-- end col -->
+                                <div class="col-sm-4">
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3">
+                                            Success
+                                        </label>
+                                    </div>
+
+                                </div><!-- end col -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-box">
+                            <div class="checkbox checkbox-success">
+                                <input id="checkbox3" type="checkbox">
+                                <label for="checkbox3">
+                                    Success
+                                </label>
                             </div>
                         </div>
                     </div>

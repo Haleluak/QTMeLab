@@ -66,50 +66,36 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('assign.task') }}">Thêm Chỉ Tiêu</a>
                                         <a href="#create-sample-modal" data-animation="fadein" data-plugin="custommodal"
                                            data-overlayspeed="200" data-overlaycolor="#36404a"> Thêm mẫu</a>
                                     </li>
                                 </ul>
                             </div>
-                            <h4 class="header-title m-t-0 m-b-30"> Danh sách mẫu</h4>
+                            <h4 class="header-title m-t-0 m-b-30"> Danh sách mẫu thuộc hợp đồng {{ $contract->so_hop_dong }}</h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                     <tr>
+                                        <th>Stt</th>
                                         <th>Tên Mẫu</th>
                                         <th>Chỉ Tieu</th>
-                                        <th>Người làm</th>
+                                        <th>Phân loại</th>
                                         <th>Ngày bắt đầu</th>
                                         <th>Ngày kết Thúc</th>
+                                        <th>Note</th>
                                         <th style="width: 102px"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($contract->samples as $sample)
+                                    @foreach($contract->samples as $key=>$sample)
                                         <tr>
+                                            <td>{{$key +1 }}</td>
                                             <td>{{ $sample->name }}</td>
-                                            <td>01/01/2016</td>
-                                            <td>
-                                                <div class="assign-team">
-                                                    <div>
-                                                        <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                          src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg">
-                                                        </a>
-                                                        <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                          src="http://coderthemes.com/adminto/light/assets/images/users/avatar-3.jpg">
-                                                        </a>
-                                                        <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                          src="http://coderthemes.com/adminto/light/assets/images/users/avatar-5.jpg">
-                                                        </a>
-                                                        <a href="#"> <img class="img-circle thumb-sm" alt="64x64"
-                                                                          src="http://coderthemes.com/adminto/light/assets/images/users/avatar-8.jpg">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td><span class="label label-danger">Released</span></td>
-                                            <td>01/01/2016</td>
+                                            <td>Ph4</td>
+                                            <td>{{  $sample->category }}</td>
+                                            <td>{{  $sample->created_at }}</td>
+                                            <td>{{  $sample->updated_at }}</td>
+                                            <td>{{  $sample->note }}</td>
                                             <td class="actions">
                                                 <a href="{{ route('assign.task') }}" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-pencil"></i></a>
                                                 <a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
@@ -140,8 +126,16 @@
                     <input type="text" class="form-control" name="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
+                    <label for="category">Phân loại</label>
+                    <input type="text" class="form-control" name="category" placeholder="loại">
+                </div>
+                <div class="form-group">
                     <label for="quantity">Số Lượng mẫu</label>
                     <input type="text" class="form-control" name="quantity" placeholder="Số lượng mẫu" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="note">Ghi Chú</label>
+                    <textarea class="form-control" name="note" rows="3"></textarea>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="contract_id" value="{{ $contract->id }}">

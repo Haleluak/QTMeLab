@@ -12,6 +12,8 @@ class Sample extends Model
     protected $fillable = [
         'name',
         'contract_id',
+        'category',
+        'note',
         'start_date',
         'end_date'
     ];
