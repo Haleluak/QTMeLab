@@ -6,13 +6,13 @@
     <link href="{{ asset('admin/plugins/select2/dist/css/select2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin/plugins/select2/dist/css/select2-bootstrap.css') }}" rel="stylesheet" type="text/css">
     <style>
-         .select2-drop {
-             z-index: 99999;
-         }
+        .select2-drop {
+            z-index: 99999;
+        }
 
-         .select2-drop-mask {
-             z-index: 99998;
-         }
+        .select2-drop-mask {
+            z-index: 99998;
+        }
     </style>
 @endSection
 
@@ -30,12 +30,12 @@
                                 <div class="col-lg-12">
 
                                     <ul class="nav nav-tabs">
-                                        <li role="presentation" class="">
-                                            <a href="#home1" role="tab" data-toggle="tab" aria-expanded="false">Home</a>
-                                        </li>
-                                        <li role="presentation" class="active">
-                                            <a href="#profile1" role="tab" data-toggle="tab" aria-expanded="true">Profile</a>
-                                        </li>
+                                        @foreach($groups as $key=>$group)
+                                            <li role="presentation" class="{{ $key == 1 ? "active" : "" }}">
+                                                <a href="#{{ str_slug($group->name, "-")}}" role="tab" data-toggle="tab"
+                                                   aria-expanded="{{ $key == 1 ? "false" : "true" }}">{{ $group->name }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade" id="home1">
@@ -43,86 +43,66 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade active in" id="profile1">
                                             <div class="row">
-                                                <div class="col-sm-4">
+                                                <div class="col-lg-8 col-md-6">
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+                                                    </div><!-- end col -->
+
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+
+                                                    </div><!-- end col -->
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-success">
+                                                            <input id="checkbox3" type="checkbox">
+                                                            <label for="checkbox3">
+                                                                Success
+                                                            </label>
+                                                        </div>
+
+                                                    </div><!-- end col -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h4 class="card-title">Quy Chuẩn</h4>
                                                     <div class="checkbox checkbox-success">
                                                         <input id="checkbox3" type="checkbox">
                                                         <label for="checkbox3">
                                                             Success
                                                         </label>
                                                     </div>
-                                                    <div class="checkbox checkbox-success">
-                                                        <input id="checkbox3" type="checkbox">
-                                                        <label for="checkbox3">
-                                                            Success
-                                                        </label>
-                                                    </div>
-                                                </div><!-- end col -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div><!-- end col -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-6">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-                                </div><!-- end col -->
-
-                                <div class="col-sm-4">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-
-                                </div><!-- end col -->
-                                <div class="col-sm-4">
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-success">
-                                        <input id="checkbox3" type="checkbox">
-                                        <label for="checkbox3">
-                                            Success
-                                        </label>
-                                    </div>
-
-                                </div><!-- end col -->
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-box">
-                            <div class="checkbox checkbox-success">
-                                <input id="checkbox3" type="checkbox">
-                                <label for="checkbox3">
-                                    Success
-                                </label>
                             </div>
                         </div>
                     </div>
