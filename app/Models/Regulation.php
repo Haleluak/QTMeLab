@@ -10,6 +10,11 @@ class Regulation extends Model
     protected $table = 'regulation';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name'
+        'name',
+        'group_id'
     ];
+    public function specifications()
+    {
+        return $this->hasMany(Specification::class, 'regulation_id', 'id');
+    }
 }

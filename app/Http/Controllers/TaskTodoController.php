@@ -20,6 +20,9 @@ class TaskTodoController extends Controller
     public function index(Request $request, $id = 0)
     {
         $groups = $this->_groupRepository->getAll();
+        /*return response()->json([
+            'data' => $groups
+        ]);*/
         return view('assign.task' ,compact('groups'));
     }
 }

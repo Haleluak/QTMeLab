@@ -12,4 +12,8 @@ class GroupLab extends Model
     protected $fillable = [
         'name'
     ];
+    public function regulations()
+    {
+        return $this->hasMany(Regulation::class, 'group_id', 'id');
+    }
 }

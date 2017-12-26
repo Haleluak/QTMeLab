@@ -31,76 +31,46 @@
 
                                     <ul class="nav nav-tabs">
                                         @foreach($groups as $key=>$group)
-                                            <li role="presentation" class="{{ $key == 1 ? "active" : "" }}">
+                                            <li role="presentation" class="{{ $key == 0 ? "active" : "" }}">
                                                 <a href="#{{ str_slug($group->name, "-")}}" role="tab" data-toggle="tab"
-                                                   aria-expanded="{{ $key == 1 ? "false" : "true" }}">{{ $group->name }}</a>
+                                                   aria-expanded="{{ $key == 0 ? "false" : "true" }}">{{ $group->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
                                     <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane fade" id="home1">
-
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane fade active in" id="profile1">
-                                            <div class="row">
-                                                <div class="col-lg-8 col-md-6">
-                                                    <div class="col-sm-4">
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-                                                    </div><!-- end col -->
-
-                                                    <div class="col-sm-4">
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-
-                                                    </div><!-- end col -->
-                                                    <div class="col-sm-4">
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox checkbox-success">
-                                                            <input id="checkbox3" type="checkbox">
-                                                            <label for="checkbox3">
-                                                                Success
-                                                            </label>
-                                                        </div>
-
-                                                    </div><!-- end col -->
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <h4 class="card-title">Quy Chuẩn</h4>
-                                                    <div class="checkbox checkbox-success">
-                                                        <input id="checkbox3" type="checkbox">
-                                                        <label for="checkbox3">
-                                                            Success
-                                                        </label>
+                                        @foreach($groups as $key=>$group)
+                                            <div role="tabpanel" class="tab-pane fade {{ $key == 0 ? 'active in' :''}}"
+                                                 id="{{ str_slug($group->name, "-")}}">
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-md-6">
+                                                        @foreach($group->regulations as $regulation)
+                                                            @foreach($regulation->specifications as $specification )
+                                                                <div class="col-sm-4">
+                                                                    <div class="checkbox checkbox-success">
+                                                                        <input id="checkbox{{$specification->id}}"
+                                                                               type="checkbox">
+                                                                        <label for="checkbox{{$specification->id}}">
+                                                                            {{ $specification->name }}
+                                                                        </label>
+                                                                    </div>
+                                                                </div><!-- end col -->
+                                                            @endforeach
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h4 class="card-title">Quy Chuẩn</h4>
+                                                        @foreach($group->regulations as $regulation )
+                                                            <div class="checkbox checkbox-success">
+                                                                <input id="checkbox{{$regulation->id}}" type="checkbox">
+                                                                <label for="checkbox{{$regulation->id}}">
+                                                                    {{ $regulation->name }}
+                                                                </label>
+                                                            </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div><!-- end col -->
                             </div>
