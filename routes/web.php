@@ -31,3 +31,5 @@ Route::post('regulation', 'RegulationController@index')->name('regulation.create
 
 Route::get('specification', 'SpecificationController@index')->name('specification.list');
 Route::get('member', 'MemberController@getMember');
+
+Route::post('addTask', 'TaskTodoController@assignTask')->name('assgin.add');

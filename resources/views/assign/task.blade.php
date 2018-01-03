@@ -22,61 +22,75 @@
         <div class="content">
             <div class="container">
                 <!-- end row -->
+                <form role="form" method="post" action="{{ route('assgin.add') }}">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box">
+                                <div class="row">
+                                    <div class="col-lg-12">
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-lg-12">
-
-                                    <ul class="nav nav-tabs">
-                                        @foreach($groups as $key=>$group)
-                                            <li role="presentation" class="{{ $key == 0 ? "active" : "" }}">
-                                                <a href="#{{ str_slug($group->name, "-")}}" role="tab" data-toggle="tab"
-                                                   aria-expanded="{{ $key == 0 ? "false" : "true" }}">{{ $group->name }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                    <div class="tab-content">
-                                        @foreach($groups as $key=>$group)
-                                            <div role="tabpanel" class="tab-pane fade {{ $key == 0 ? 'active in' :''}}"
-                                                 id="{{ str_slug($group->name, "-")}}">
-                                                <div class="row">
-                                                    <div class="col-lg-8 col-md-6">
-                                                        @foreach($group->regulations as $regulation)
-                                                            @foreach($regulation->specifications as $specification )
-                                                                <div class="col-sm-4">
-                                                                    <div class="checkbox checkbox-success">
-                                                                        <input id="checkbox{{$specification->id}}"
-                                                                               type="checkbox">
-                                                                        <label for="checkbox{{$specification->id}}">
-                                                                            {{ $specification->name }}
-                                                                        </label>
-                                                                    </div>
-                                                                </div><!-- end col -->
+                                        <ul class="nav nav-tabs">
+                                            @foreach($groups as $key=>$group)
+                                                <li role="presentation" class="{{ $key == 0 ? "active" : "" }}">
+                                                    <a href="#{{ str_slug($group->name, "-")}}" role="tab"
+                                                       data-toggle="tab"
+                                                       aria-expanded="{{ $key == 0 ? "false" : "true" }}">{{ $group->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="tab-content">
+                                            @foreach($groups as $key=>$group)
+                                                <div role="tabpanel"
+                                                     class="tab-pane fade {{ $key == 0 ? 'active in' :''}}"
+                                                     id="{{ str_slug($group->name, "-")}}">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 col-md-6">
+                                                            @foreach($group->regulations as $regulation)
+                                                                @foreach($regulation->specifications as $specification )
+                                                                    <div class="col-sm-4">
+                                                                        <div class="checkbox checkbox-success">
+                                                                            <input value="{{ $specification->id }}"
+                                                                                   name="specification_ids[]"
+                                                                                   id="checkbox-{{str_slug($specification->name, "-")  }}"
+                                                                                   type="checkbox"
+                                                                                   class="{{str_slug($regulation->name, "-") }}">
+                                                                            <label for="checkbox-{{str_slug($specification->name, "-") }}">
+                                                                                {{ $specification->name }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div><!-- end col -->
+                                                                @endforeach
                                                             @endforeach
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <h4 class="card-title">Quy Chuẩn</h4>
-                                                        @foreach($group->regulations as $regulation )
-                                                            <div class="checkbox checkbox-success">
-                                                                <input id="checkbox{{$regulation->id}}" type="checkbox">
-                                                                <label for="checkbox{{$regulation->id}}">
-                                                                    {{ $regulation->name }}
-                                                                </label>
-                                                            </div>
-                                                        @endforeach
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h4 class="card-title">Quy Chuẩn</h4>
+                                                            @foreach($group->regulations as $regulation )
+                                                                <div class="checkbox checkbox-success rerulation">
+                                                                    <input id="{{str_slug($regulation->name, "-") }}"
+                                                                           type="checkbox"
+                                                                           value="{{ $regulation->id }}">
+                                                                    <label for="{{str_slug($regulation->name, "-") }}">
+                                                                        {{ $regulation->name }}
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div><!-- end col -->
+                                            @endforeach
+                                        </div>
+                                    </div><!-- end col -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-l-10 btn-md">Hoàn Thành
+                        </button>
+                    </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="sample_id" value="12">
+                </form>
                 <!-- end row -->
 
             </div> <!-- container -->

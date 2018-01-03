@@ -17,4 +17,7 @@ class Sample extends Model
         'start_date',
         'end_date'
     ];
+    public function specifications() {
+        return $this->belongsToMany(Specification::class, 'sample_specification', 'sample_id', 'specification_id');
+    }
 }
