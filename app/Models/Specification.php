@@ -11,6 +11,11 @@ class Specification extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'name',
-        'regulation_id'
+        'regulation_id',
+        'group_id'
     ];
+    public function regulation()
+    {
+        return $this->belongsTo(Regulation::class, 'regulation_id', 'id');
+    }
 }

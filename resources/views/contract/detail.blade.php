@@ -71,7 +71,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <h4 class="header-title m-t-0 m-b-30"> Danh sách mẫu thuộc hợp đồng {{ $contract->so_hop_dong }}</h4>
+                            <h4 class="header-title m-t-0 m-b-30"> Danh sách mẫu thuộc hợp
+                                đồng {{ $contract->so_hop_dong }}</h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -91,14 +92,27 @@
                                         <tr>
                                             <td>{{$key +1 }}</td>
                                             <td>{{ $sample->name }}</td>
-                                            <td>Ph4</td>
+                                            <td>
+                                                @if($sample->specifications->count())
+                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id]) }}">
+                                                        {{ $sample->specifications->implode('name', ', ')  }}
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id]) }}">
+                                                        Thêm Chỉ Tiêu
+                                                    </a>
+                                                @endif
+                                            </td>
                                             <td>{{  $sample->category }}</td>
                                             <td>{{  $sample->created_at }}</td>
                                             <td>{{  $sample->updated_at }}</td>
                                             <td>{{  $sample->note }}</td>
                                             <td class="actions">
-                                                <a href="{{ route('assign.task') }}" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-pencil"></i></a>
-                                                <a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <a href="{{ route('assign.task', ['sample_id' => $sample->id]) }}"
+                                                   class="btn btn-sm btn-info"><i
+                                                            class="glyphicon glyphicon-pencil"></i></a>
+                                                <a class="btn btn-sm btn-danger"><i
+                                                            class="glyphicon glyphicon-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

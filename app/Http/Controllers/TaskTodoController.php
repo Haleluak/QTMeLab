@@ -24,6 +24,7 @@ class TaskTodoController extends Controller
         /*return response()->json([
             'data' => $groups
         ]);*/
+        //return $groups[0]->spectifications[0]->regulation->name;
         return view('assign.task' ,compact('groups'));
     }
     public function assignTask(Request $request)

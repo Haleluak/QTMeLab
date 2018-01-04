@@ -45,22 +45,20 @@
                                                      id="{{ str_slug($group->name, "-")}}">
                                                     <div class="row">
                                                         <div class="col-lg-8 col-md-6">
-                                                            @foreach($group->regulations as $regulation)
-                                                                @foreach($regulation->specifications as $specification )
+                                                                @foreach($group->spectifications as $specification )
                                                                     <div class="col-sm-4">
                                                                         <div class="checkbox checkbox-success">
                                                                             <input value="{{ $specification->id }}"
                                                                                    name="specification_ids[]"
                                                                                    id="checkbox-{{str_slug($specification->name, "-")  }}"
                                                                                    type="checkbox"
-                                                                                   class="{{str_slug($regulation->name, "-") }}">
+                                                                                   class="{{str_slug($specification->regulation['name'] , "-") }}">
                                                                             <label for="checkbox-{{str_slug($specification->name, "-") }}">
                                                                                 {{ $specification->name }}
                                                                             </label>
                                                                         </div>
                                                                     </div><!-- end col -->
                                                                 @endforeach
-                                                            @endforeach
                                                         </div>
                                                         <div class="col-md-4">
                                                             <h4 class="card-title">Quy Chuẩn</h4>
@@ -89,7 +87,7 @@
                         </button>
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="sample_id" value="12">
+                    <input type="hidden" name="sample_id" value="{{ $_GET['sample_id'] }}">
                 </form>
                 <!-- end row -->
 

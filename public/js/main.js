@@ -24,15 +24,16 @@ $(document).ready(function () {
         $("." + $(this).attr('id')).prop('checked', $(this).prop("checked"));
     });
     $("#addtask").click(function () {
-        $.ajax({
+        console.log($('form').serialize());
+        /*$.ajax({
             type: "post",
             url: "/addTask",
             dataType: 'json',
-            data: {sample_id: 12, specification_ids: [12, 23, 45]},
+            data: $('form').serialize(),
             success: function (data, statusText, xhr) {
                 console.log(data);
             }
-        });
+        });*/
     });
 })
 ;

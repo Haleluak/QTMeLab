@@ -16,4 +16,8 @@ class GroupLab extends Model
     {
         return $this->hasMany(Regulation::class, 'group_id', 'id');
     }
+    public function spectifications()
+    {
+        return $this->hasMany(Specification::class, 'group_id', 'id');
+    }
 }
