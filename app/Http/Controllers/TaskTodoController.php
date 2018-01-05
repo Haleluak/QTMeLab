@@ -20,12 +20,14 @@ class TaskTodoController extends Controller
 
     public function index(Request $request, $id = 0)
     {
+        $sample_id = $request->get('sample_id');
+        $sample = Sample::with('specifications')->where('id', $sample_id)->get();;
         $groups = $this->_groupRepository->getAll();
         /*return response()->json([
-            'data' => $groups
+            'data' => $sample
         ]);*/
         //return $groups[0]->spectifications[0]->regulation->name;
-        return view('assign.task' ,compact('groups'));
+        return view('assign.task' ,compact('groups','sample'));
     }
     public function assignTask(Request $request)
     {
