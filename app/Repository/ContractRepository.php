@@ -8,6 +8,7 @@ class ContractRepository
 {
     private $_contractModel;
 
+    const STATUS_PROCESSING = 'processing';
     public function __construct()
     {
         $this->_contractModel = new Contract();
@@ -39,6 +40,12 @@ class ContractRepository
         $contract = Contract::find($id);
         $contract->load('customer','samples.specifications');
         return $contract;
+    }
+    public function updateStatus($id)
+    {
+        $contract = Contract::find($id);
+        $contract->status = self::STATUS_PROCESSING;
+        $contract->save;
     }
 
 }

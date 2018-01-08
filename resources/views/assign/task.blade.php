@@ -53,7 +53,7 @@
                                                                                    id="checkbox-{{str_slug($specification->name, "-")  }}"
                                                                                    type="checkbox"
                                                                                    class="{{str_slug($specification->regulation['name'] , "-") }}"
-                                                                                   {{ $sample->search($specification->id, true) ? 'checked' : ''}}
+                                                                                   {{ $sample->specifications->contains('id',$specification->id) ? 'checked' : ''}}
                                                                             >
                                                                             <label for="checkbox-{{str_slug($specification->name, "-") }}">
                                                                                 {{ $specification->name }}

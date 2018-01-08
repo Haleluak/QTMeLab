@@ -94,7 +94,7 @@
                                             <td>{{ $sample->name }}</td>
                                             <td>
                                                 @if($sample->specifications->count())
-                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id]) }}">
+                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id, 'contract_id' => $contract->id ]) }}">
                                                         {{ $sample->specifications->implode('name', ', ')  }}
                                                     </a>
                                                 @else
