@@ -90,6 +90,7 @@
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="sample_id" value="{{ $_GET['sample_id'] }}">
+                    <input type="hidden" name="contract_id" value="{{ $_GET['contract_id'] }}">
                 </form>
                 <!-- end row -->
 

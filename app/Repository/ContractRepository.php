@@ -45,7 +45,7 @@ class ContractRepository
     {
         $contract = Contract::find($id);
         $contract->status = self::STATUS_PROCESSING;
-        $contract->save;
+        $contract->save();
     }
 
 }

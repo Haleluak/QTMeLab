@@ -98,7 +98,7 @@
                                                         {{ $sample->specifications->implode('name', ', ')  }}
                                                     </a>
                                                 @else
-                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id]) }}">
+                                                    <a href="{{ route('assign.task', ['sample_id' => $sample->id, 'contract_id' => $contract->id ]) }}">
                                                         Thêm Chỉ Tiêu
                                                     </a>
                                                 @endif

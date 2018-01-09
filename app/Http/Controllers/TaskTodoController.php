@@ -7,6 +7,7 @@ use App\Models\Sample;
 use App\Repository\ContractRepository;
 use App\Repository\GroupRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskTodoController extends Controller
 {
@@ -38,9 +39,17 @@ class TaskTodoController extends Controller
         $sample_id = $request->get('sample_id');
         $contract_id = $request->get('contract_id');
         $specification_ids = $request->get('specification_ids');
-        $sample = Sample::find($sample_id);
-        $sample->specifications()->sync($specification_ids);
-        $this->_contractRepository->updateStatus();
-        return back();
+        DB::beginTransaction();
+        try {
+            $sample = Sample::find($sample_id);
+            $sample->specifications()->sync($specification_ids);
+            $this->_contractRepository->updateStatus($contract_id);
+            DB::commit();
+        }
+        catch (Exception $ex) {
+            DB::rollback();
+            throw $ex;
+        }
+        return redirect()->route('contract');
     }
 }

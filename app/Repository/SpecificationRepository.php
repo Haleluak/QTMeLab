@@ -22,6 +22,6 @@ class SpecificationRepository
     public function getAll()
     {
         $group = $this->getModel();
-        return $group->all();
+        return $group::with('regulation','group','member')->get();
     }
 }

@@ -14,12 +14,14 @@ class SpecificationController extends Controller
     private $_specificationRepository;
     private $_groupRepository;
     private $_regulationRepository;
+    private $_memberRepository;
 
     public function __construct()
     {
         $this->_specificationRepository= new SpecificationRepository();
         $this->_groupRepository = new GroupRepository();
         $this->_regulationRepository= new RegulationRepository();
+        $this->_memberRepository = new MemberRepository();
     }
 
     public function index(Request $request)
@@ -28,9 +30,13 @@ class SpecificationController extends Controller
             $data = $request->all();
             $this->_specificationRepository->create($data);
         }
-        //$regulations = $this->_specificationRepository->getAll();
         $groups = $this->_groupRepository->getAll();
         $regulations = $this->_regulationRepository->getAll();
-        return view('specification.list', compact('groups','regulations'));
+        $specifications = $this->_specificationRepository->getAll();
+        $members = $this->_memberRepository->getAll();
+        /*return response()->json([
+           'data' => $specifications
+       ]);*/
+        return view('specification.list', compact('groups','regulations','specifications','members'));
     }
 }

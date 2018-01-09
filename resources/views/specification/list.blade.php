@@ -32,7 +32,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="#create-sample-modal" data-animation="fadein" data-plugin="custommodal"
-                                           data-overlayspeed="200" data-overlaycolor="#36404a"> Thêm mẫu</a>
+                                           data-overlayspeed="200" data-overlaycolor="#36404a"> Thêm Chỉ Tiêu</a>
                                     </li>
                                 </ul>
                             </div>
@@ -43,13 +43,22 @@
                                     <tr>
                                         <th>Tên Chỉ tiêu</th>
                                         <th>Quy Chuẩn</th>
-                                        <th>Người làm</th>
-                                        <th>Nhóm làm</th>
+                                        <th>Nhóm</th>
+                                        <th>Thành Viên</th>
                                         <th style="width: 102px"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
+                                    @foreach($specifications as $specification)
+                                        <tr>
+                                            <td>
+                                                <a href="{{ url('/group/view/' .$specification->id) }}">{{ $specification->name }}</a>
+                                            </td>
+                                            <td>{{ $specification->regulation['name'] }}</td>
+                                            <td>{{ $specification->group['name'] }}</td>
+                                            <td>{{ $specification->member['name'] }}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -62,7 +71,7 @@
 
         </div> <!-- content -->
     </div>
-    <div id="create-sample-modal" class="modal-demo">
+    --<div id="create-sample-modal" class="modal-demo">
         <button type="button" class="close" onclick="Custombox.close();">
             <span>&times;</span><span class="sr-only">Close</span>
         </button>
@@ -85,7 +94,6 @@
                 <div class="form-group">
                     <label for="group" class="col-form-label">Chọn nhóm</label>
                     <select class="form-control" id="group_lab">
-                        <option>Chọn nhóm</option>
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{ $group->name }}</option>
                         @endforeach
@@ -95,6 +103,9 @@
                     <label for="assignTo" class="col-form-label"> Assign To </label>
                     <select class="form-control" id="assignTo">
                         <option>Select</option>
+                        @foreach($members as $member)
+                            <option value="{{ $member->id }}">{{ $member->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
