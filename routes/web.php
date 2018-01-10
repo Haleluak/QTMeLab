@@ -30,6 +30,7 @@ Route::get('regulation', 'RegulationController@index')->name('regulation.list');
 Route::post('regulation', 'RegulationController@index')->name('regulation.create');
 
 Route::get('specification', 'SpecificationController@index')->name('specification.list');
+Route::post('specification', 'SpecificationController@index')->name('specification.create');
 Route::get('member', 'MemberController@getMember');
 
 Route::post('addTask', 'TaskTodoController@assignTask')->name('assgin.add');

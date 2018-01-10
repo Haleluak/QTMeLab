@@ -77,14 +77,14 @@
         </button>
         <h4 class="custom-modal-title">Thêm Chỉ tiêu</h4>
         <div class="custom-modal-text text-left">
-            <form role="form" method="post" action="{{ route('sample.create') }}">
+            <form role="form" method="post" action="{{ route('specification.create') }}">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" name="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
                     <label for="ten_khach_hang_thanh_toan" class="col-form-label">Chọn Tieu Chuan</label>
-                    <select class="form-control select2">
+                    <select class="form-control select2" name="regulation_id">
                         <option>Chọn Tieu chuan</option>
                         @foreach($regulations as $regulation)
                             <option value="{{ $regulation->id }}">{{ $regulation->name }}</option>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="form-group">
                     <label for="group" class="col-form-label">Chọn nhóm</label>
-                    <select class="form-control" id="group_lab">
+                    <select class="form-control" name="group_id">
                         @foreach($groups as $group)
                             <option value="{{ $group->id }}">{{ $group->name }}</option>
                         @endforeach
@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-group">
                     <label for="assignTo" class="col-form-label"> Assign To </label>
-                    <select class="form-control" id="assignTo">
+                    <select class="form-control" name="member_id">
                         <option>Select</option>
                         @foreach($members as $member)
                             <option value="{{ $member->id }}">{{ $member->name }}</option>
@@ -109,7 +109,6 @@
                     </select>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="contract_id" value="3">
                 <button type="submit" class="btn btn-success waves-effect waves-light">Save</button>
             </form>
         </div>

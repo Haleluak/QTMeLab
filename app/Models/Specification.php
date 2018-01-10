@@ -12,7 +12,8 @@ class Specification extends Model
     protected $fillable = [
         'name',
         'regulation_id',
-        'group_id'
+        'group_id',
+        'member_id'
     ];
     public function regulation()
     {
