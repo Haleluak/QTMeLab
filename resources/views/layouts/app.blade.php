@@ -122,7 +122,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('specification.list') }}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Thống kê </span>
+                        <a href="{{ route('sumary.list') }}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Thống kê </span>
                         </a>
                     </li>
                     <li>

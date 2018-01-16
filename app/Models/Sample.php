@@ -18,6 +18,6 @@ class Sample extends Model
         'end_date'
     ];
     public function specifications() {
-        return $this->belongsToMany(Specification::class, 'sample_specification', 'sample_id', 'specification_id');
+        return $this->belongsToMany(Specification::class, 'sample_specification', 'sample_id', 'specification_id')->withPivot( 'status');
     }
 }

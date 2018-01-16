@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Repository\ContractRepository;
+use Illuminate\Http\Request;
 
 class ContractController extends Controller
 {
@@ -26,6 +27,11 @@ class ContractController extends Controller
     {
         $contract = $this->_contractRepository->getdetail($id);
         return view('contract.detail', compact('contract'));
+    }
+    public function sumaryContract(Request $request)
+    {
+        $contracts = $this->_contractRepository->getSumary();
+        return view('sumary.list', compact('contracts'));
     }
 
 }

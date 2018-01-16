@@ -47,5 +47,54 @@ class ContractRepository
         $contract->status = self::STATUS_PROCESSING;
         $contract->save();
     }
+    public function getSumary()
+    {
+        $contracts = Contract::all();
 
+        foreach ($contracts as $report) {
+            if (sizeof($report->samples)) {
+                $reports = [];
+                foreach ($report->samples as $sample){
+                    foreach ($sample->specifications as $specifications)
+                    {
+                        $array = [
+                            'group_id' => $specifications->group->id,
+                            'group_name' => $specifications->group->name,
+                            'member_id' => $specifications->member->id,
+                            'member_name' => $specifications->member->name,
+                            'specification_name' => $specifications->name,
+                            'specification_id' => $specifications->id,
+                            'status' => $specifications->pivot->status
+                        ];
+                        array_push($reports, $array);
+                        $tmp = array();
+
+                        foreach ($reports as $arg) {
+                            $tmp[$arg['group_id']][] = array(
+                                'group_id' => $arg['group_id'],
+                                'group_name' => $arg['group_name'],
+                                'member_id' => $arg['member_id'],
+                                'status' => $arg['status'],
+                                'specification_name' => $arg['specification_name'],
+                                'specification_id' => $arg['specification_id'],
+                                'member_name' => $arg['member_name']
+                            );
+                        }
+                        $results = array();
+                        foreach ($tmp as $group_id => $labels) {
+                            $results[] = array(
+                                'group_id' => $group_id,
+                                'group_name' => $labels[0]['group_name'],
+                                'member' => $labels,
+                            );
+                        }
+                    }
+
+                }
+                $report->sumary = $results;
+            }
+        }
+
+        return $contracts;
+    }
 }
