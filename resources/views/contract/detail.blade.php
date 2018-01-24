@@ -77,9 +77,11 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
+                                        <th>k</th>
                                         <th>Stt</th>
                                         <th>Tên Mẫu</th>
                                         <th>Chỉ Tieu</th>
+                                        <th>Duplicate</th>
                                         <th>Phân loại</th>
                                         <th>Ngày bắt đầu</th>
                                         <th>Ngày kết Thúc</th>
@@ -90,6 +92,15 @@
                                     <tbody>
                                     @foreach($contract->samples as $key=>$sample)
                                         <tr>
+                                            <td>
+                                                @if(!$sample->specifications->count())
+                                                    <div class="checkbox checkbox-single">
+                                                        <input type="checkbox" id="singleCheckbox1" value="option1"
+                                                               aria-label="Single checkbox One">
+                                                        <label></label>
+                                                    </div>
+                                                @endif
+                                            </td>
                                             <td>{{$key +1 }}</td>
                                             <td>{{ $sample->name }}</td>
                                             <td>
@@ -100,6 +111,12 @@
                                                 @else
                                                     <a href="{{ route('assign.task', ['sample_id' => $sample->id, 'contract_id' => $contract->id ]) }}">
                                                         Thêm Chỉ Tiêu
+                                                    </a>
+                                                @endif
+                                            </td>
+                                            <td>@if($sample->specifications->count())
+                                                    <a class="btn btn-sm btn-info">
+                                                        <i class="fa fa-unlock fa-fw"></i>
                                                     </a>
                                                 @endif
                                             </td>

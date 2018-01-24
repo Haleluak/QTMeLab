@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Models\Contract;
+use Carbon\Carbon;
 
 class ContractRepository
 {
@@ -47,10 +48,18 @@ class ContractRepository
         $contract->status = self::STATUS_PROCESSING;
         $contract->save();
     }
-    public function getSumary()
+    public function getSumary($filters)
     {
-        $contracts = Contract::all();
+        $builder = Contract::with('samples');
+        if (isset($filters['contract_code'])) {
 
+            $builder->where('so_hop_dong', $filters['contract_code']);
+        }
+        if(isset($filters['due_day'])){
+            $start = Carbon::createFromFormat('m/d/Y H:i:s', $filters['due_day']. ' 00:00:00')->format('Y-m-d H:i:s');
+            $builder->where('ngay_du_kien', '>=', $start);
+        }
+        $contracts = $builder->get();
         foreach ($contracts as $report) {
             if (sizeof($report->samples)) {
                 $reports = [];

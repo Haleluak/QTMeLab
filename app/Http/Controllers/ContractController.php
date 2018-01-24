@@ -30,7 +30,8 @@ class ContractController extends Controller
     }
     public function sumaryContract(Request $request)
     {
-        $contracts = $this->_contractRepository->getSumary();
+        $filter = $request->all();
+        $contracts = $this->_contractRepository->getSumary($filter);
         return view('sumary.list', compact('contracts'));
     }
 

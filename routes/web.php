@@ -36,3 +36,4 @@ Route::get('member', 'MemberController@getMember');
 Route::post('addTask', 'TaskTodoController@assignTask')->name('assgin.add');
 
 Route::get('sumaryContract', 'ContractController@sumaryContract')->name('sumary.list');
+Route::post('sumaryContract', 'ContractController@sumaryContract')->name('sumary.search');
