@@ -115,7 +115,7 @@
                                                 @endif
                                             </td>
                                             <td>@if($sample->specifications->count())
-                                                    <a class="btn btn-sm btn-info">
+                                                    <a class="btn btn-sm btn-info duplicate"  data-sample="{{ $sample->id }}">
                                                         <i class="fa fa-unlock fa-fw"></i>
                                                     </a>
                                                 @endif
@@ -174,4 +174,7 @@
             </form>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('js/contract.js')}}"></script>
 @endsection
