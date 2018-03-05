@@ -95,8 +95,8 @@
                                             <td>
                                                 @if(!$sample->specifications->count())
                                                     <div class="checkbox checkbox-single">
-                                                        <input type="checkbox" id="singleCheckbox1" value="option1"
-                                                               aria-label="Single checkbox One">
+                                                        <input type="checkbox" id="singleCheckbox1" value="{{ $sample->id }}"
+                                                               aria-label="Single checkbox One" class="chk">
                                                         <label></label>
                                                     </div>
                                                 @endif
